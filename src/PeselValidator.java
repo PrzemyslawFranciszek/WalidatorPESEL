@@ -2,8 +2,11 @@ import java.util.Scanner;
 
 public class PeselValidator {
     public static void main(String[] args) {
-        Scanner wprowadzPesel = new Scanner(System.in);
-        int[] pesel = {8,0,0,2,2,7,6,8,1,1,3};
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Wprowadz Pesel");
+        Long wprowadzPesel = scanner.nextLong();
+
+        int[] pesel = {9,0,0,2,2,7,6,8,1,1,3};
         int[] mnoznik = {1,3,7,9,1,3,7,9,1,3};
         int suma = 0;
 
