@@ -5,14 +5,15 @@ public class PeselValidator {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Wprowadz Pesel");
         Long wprowadzPesel = scanner.nextLong();
-
-        int[] pesel = {9,0,0,2,2,7,6,8,1,1,3};
-        int[] mnoznik = {1,3,7,9,1,3,7,9,1,3};
-        int suma = 0;
+        long[] pesel = {wprowadzPesel/10000000000l ,wprowadzPesel/1000000000l,wprowadzPesel/100000000l,wprowadzPesel/10000000l,wprowadzPesel/1000000l
+                ,wprowadzPesel/100000l,wprowadzPesel/10000l,wprowadzPesel/1000l,wprowadzPesel/100l,wprowadzPesel/10l,wprowadzPesel%10};
+        System.out.println(pesel);
+        long[] mnoznik = {1,3,7,9,1,3,7,9,1,3};
+        long suma = 0;
 
         //zaincicjowanie numerów PESEL
         for(int i=0; i < mnoznik.length; i++ ){
-            int mnozenie = mnoznik[i]*pesel[i];
+            long mnozenie = mnoznik[i]*pesel[i];
             if (mnozenie>=10){
                 suma = suma + (mnozenie%10); // powyzej 9
             }else {
@@ -22,7 +23,7 @@ public class PeselValidator {
         if (suma>=10){
             suma = (suma%10); // powyzej 9
         }
-        int sumaKontrolna = 10- suma;
+        long sumaKontrolna = 10- suma;
         if(sumaKontrolna ==pesel[10]){
             System.out.println("Pesel Poprawny");
         }else {
